@@ -240,6 +240,8 @@ def atualizar_album(collectionId):
           properties:
             nota:
               type: integer
+            critica:
+              type: string
     responses:
       200:
         description: Álbum atualizado com sucesso
@@ -266,7 +268,12 @@ def atualizar_album(collectionId):
         except ValueError:
             return jsonify({'erro': 'Campo "nota" deve ser um número inteiro'}), 400
 
+    if 'critica' in data and data['critica'] is not None:
+        critica = data['critica']
+        if not isinstance(critica, str):
+            return jsonify({'erro': 'Campo "critica" deve ser uma string'}), 400
+        album.critica = critica
+
     db.session.commit()
 
     return jsonify({'mensagem': f'Álbum {album.nome} atualizado com sucesso.'})
-
