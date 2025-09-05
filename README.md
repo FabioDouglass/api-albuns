@@ -1,29 +1,41 @@
 # Backend Acervo Musical
 
 Projeto de MVP da sprint de Desenvolvimento Backend Avançado.
-Baseado no projeto de Fullstack básico, este projeto consiste em uma estrutura de acervo de músicas, onde é possível registrar, listar, apagar e editar álbuns, os quais saão consultados em uma api externa do itunes.
+Baseado no meu projeto de Fullstack básico, este projeto consiste em uma estrutura de acervo de músicas, onde é possível registrar, listar, apagar e editar críticas de álbuns, os quais as informações são consultadas em uma api externa do itunes.
+
+# Funcionalidades
+
+Buscar álbuns musicais por título ou cantor;
+Registrar uma crítica para um álbum;
+Listar álbuns criticados;
+Editar uma crítica;
+Excluir uma crítica;
 
 ## Baixar o projeto
 
 ```bash
-git clone https://github.com/FabioDouglass/api-filmes
-cd api-filmes
+git clone https://github.com/FabioDouglass/api-albuns
+cd api-albuns
 ```
 
 ## Rodar Projeto
 
-1. **Instalar as dependências:**
-
-```bash
- pip3 install -r requirements.txt
-```
-
-OBS: Projeto feito com Python 3.13.2
-
-2. **Inicie a Aplicação:**
+1. **Construa e inicie os contêineres:**
 
    ```bash
-   flask run
+   docker-compose up --build -d
+   ```
+
+   **Para encerrar os contêineres:**
+
+   ```bash
+   docker-compose down
+   ```
+
+   **Para rodar os contêineres:**
+
+   ```bash
+   docker run backend-avancado-api_api
    ```
 
 ## Acessar Documentação
@@ -32,8 +44,8 @@ Abra [http://127.0.0.1:5000/docs](http://127.0.0.1:5000/docs) no navegador
 
 ## URl para requisições
 
-http://127.0.0.1:5000/filme
-http://127.0.0.1:5000/filmes
+http://127.0.0.1:5000/album
+http://127.0.0.1:5000/albuns
 
 - **Listar todos os filmes:**
 
@@ -77,11 +89,8 @@ http://127.0.0.1:5000/filmes
   }
   ```
 
-```
+## Fluxograma da Arquitetura da API:
 
+---
 
-
-
-
-
-```
+![alt text](Fluxograma.png)

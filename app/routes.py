@@ -162,7 +162,7 @@ def deletar_album(collectionId):
     db.session.commit()
     return jsonify({'mensagem': f'{album.nome} foi removido com sucesso.'})
 
-#Buscar Album
+# Buscar Album
 @main.route('/album', methods=['GET'])
 def obter_album():
     """
