@@ -20,22 +20,16 @@ cd api-albuns
 
 ## Rodar Projeto
 
-1. **Construa e inicie os contêineres:**
+1. **Construa os contêineres:**
 
-   ```bash
-   docker-compose up --build -d
+   ```bash docker build -t flask-app .
+
    ```
 
-   **Para encerrar os contêineres:**
+   **Inicie o projeto**
 
-   ```bash
-   docker-compose down
-   ```
+   ```bash docker run -p 5001:5001 -v $(pwd)/db:/app/db flask-app
 
-   **Para rodar os contêineres:**
-
-   ```bash
-   docker run backend-avancado-api_api
    ```
 
 ## Acessar Documentação
@@ -47,46 +41,65 @@ Abra [http://127.0.0.1:5000/docs](http://127.0.0.1:5000/docs) no navegador
 http://127.0.0.1:5000/album
 http://127.0.0.1:5000/albuns
 
-- **Listar todos os filmes:**
+- **Listar todos os ábluns avaliados:**
 
   ```http
-  GET /filmes
+  GET /albuns
   ```
 
-- **Listar um filme por titulo**
+- **Buscar um álbum por ID**
 
   ```http
-  GET /filme?titulo=$titulo
+  GET /album?collectionId={collectionId}
 
   ```
 
-- **Editar a nota de um filme:**
+- **Editar a crítica de um álbum:**
 
   ```http
-  PATCH /filme/{titulo}
+  PUT /album/{collectionId}
   Body:
   {
-    "nota": int
+    "nota": int,
+    "critica": str
   }
   ```
 
-  - **Deletar um filme por título:**
+  - **Deletar um álbum:**
 
   ```http
-  DELETE /filme/{titulo}
+  DELETE /album/{collectionId}
   ```
 
-- **Cadastrar um filme:**
+- **Cadastrar um album:**
 
   ```http
-  POST /api/filme
+  POST /api/album
   Body:
   {
+  "nome": str,
+  "artista": str,
   "ano": int,
-  "diretor": str,
+  "collectionId": str
   "nota": int,
-  "titulo": str
+  "critica": str
   }
+  ```
+
+## Apis Externas:
+
+- **Buscar álbuns por título ou cantor**
+
+  ```http
+  GET https://itunes.apple.com/search?term={titulo_ou_cantor}&entity=album
+
+  ```
+
+- **Buscar detalhes de um álbum pelo id retornado na api anterior**
+
+  ```http
+  GET https://itunes.apple.com/lookup?id={collectionId}&entity=song
+
   ```
 
 ## Fluxograma da Arquitetura da serviço:

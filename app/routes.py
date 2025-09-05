@@ -62,6 +62,8 @@ def adicionar_album():
             - nome
             - artista
             - ano
+            - nota
+            - collectionId
           properties:
             nome:
               type: string
@@ -133,6 +135,7 @@ def adicionar_album():
     except IntegrityError:
       db.session.rollback()
       return jsonify({'mensagem': 'Álbum já cadastrado!'}), 409
+    
 # Deletar um álbum
 @main.route('/album/<string:collectionId>', methods=['DELETE'])
 def deletar_album(collectionId):
