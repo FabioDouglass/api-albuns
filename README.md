@@ -22,15 +22,11 @@ cd api-albuns
 
 1. **Construa os contêineres:**
 
-   ```docker build -t flask-app .
-
-   ```
+docker build -t flask-app .
 
 2. **Inicie o projeto**
 
-   ```docker run -p 5001:5001 -v $(pwd)/db:/app/db flask-app
-
-   ```
+docker run -p 5001:5001 -v $(pwd)/db:/app/db flask-app
 
 ## Acessar Documentação
 
