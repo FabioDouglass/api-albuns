@@ -18,15 +18,21 @@ git clone https://github.com/FabioDouglass/api-albuns
 cd api-albuns
 ```
 
-## Rodar Projeto
+## Rodar o Projeto
 
-1. **Construia a imagem Docker do projeto:**
+**1 - Construir a imagem Docker do projeto**
 
+```
 docker build -t flask-app .
 
-2. **Inicie o projeto**
+```
 
+**2 - Iniciar o projeto**
+
+```
 docker run -p 5001:5001 -v $(pwd)/db:/app/db flask-app
+
+```
 
 ## Acessar Documentação
 
