@@ -20,7 +20,7 @@ cd api-albuns
 
 ## Rodar Projeto
 
-1. **Construa os contêineres:**
+1. **Construia a imagem Docker do projeto:**
 
 docker build -t flask-app .
 
