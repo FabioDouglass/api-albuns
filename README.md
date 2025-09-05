@@ -26,7 +26,7 @@ cd api-albuns
 
    ```
 
-   **Inicie o projeto**
+2. **Inicie o projeto**
 
    ```bash docker run -p 5001:5001 -v $(pwd)/db:/app/db flask-app
 
