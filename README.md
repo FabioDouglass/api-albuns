@@ -34,7 +34,7 @@ Abra [http://127.0.0.1:5001/docs](http://127.0.0.1:5001/docs) no navegador
 
 ## URl para requisições
 
-http://127.0.0.1:5001/album
+http://127.0.0.1:5001/album  
 http://127.0.0.1:5001/albuns
 
 - **Listar todos os ábluns avaliados:**
