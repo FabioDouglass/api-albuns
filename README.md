@@ -89,7 +89,7 @@ http://127.0.0.1:5000/albuns
   }
   ```
 
-## Fluxograma da Arquitetura da API:
+## Fluxograma da Arquitetura da serviço:
 
 ---
 
