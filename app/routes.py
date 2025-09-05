@@ -14,7 +14,7 @@ def obter_albuns():
     Retorna a lista de álbuns
     ---
     tags:
-      - Álbums
+      - Albuns
     operationId: obter_albuns
     responses:
       200:
@@ -37,6 +37,7 @@ def obter_albuns():
               collectionId:
                 type: string
     """
+    
     albuns = db.session.query(Album.nome, Album.artista, Album.ano, Album.nota, Album.critica, Album.collectionId).all()
     return jsonify([{'nome': nome, 'artista': artista, 'ano': ano, 'nota': nota, 'critica': critica, 'collectionId': collectionId} for nome, artista, ano, nota, critica, collectionId in albuns])
 
@@ -47,7 +48,7 @@ def adicionar_album():
     Adicionar álbum
     ---
     tags:
-      - Álbums
+      - Albuns
     operationId: adicionar_album
     consumes:
       - application/json
@@ -58,6 +59,7 @@ def adicionar_album():
         name: body
         required: true
         schema:
+          type: object
           required:
             - nome
             - artista
@@ -82,16 +84,16 @@ def adicionar_album():
               example: "Otimo disco"
             collectionId:
               type: string
-              example: 123456
-              
+              example: "123456"
     responses:
       201:
-        description: Álbum adicionado com sucesso
+        description: Album adicionado com sucesso
       400:
         description: Dados inválidos
       409:
-        description: Álbum já cadastrado
+        description: Album já cadastrado
     """
+
     dados = request.get_json()
 
     # Campos obrigatórios
@@ -143,7 +145,7 @@ def deletar_album(collectionId):
     Deletar álbum pelo collectionId
     ---
     tags:
-      - Álbums
+      - Albuns
     operationId: deletar_album
     parameters:
       - name: collectionId
@@ -152,9 +154,9 @@ def deletar_album(collectionId):
         required: true
     responses:
       200:
-        description: Álbum deletado com sucesso
+        description: Album deletado com sucesso
       404:
-        description: Álbum não encontrado
+        description: Album não encontrado
     """
     album = db.session.query(Album).filter(Album.collectionId == collectionId).first()
 
@@ -172,7 +174,7 @@ def obter_album():
     Retorna álbum pelo collectionId
     ---
     tags:
-      - Álbums
+      - Albuns
     operationId: obter_album
     parameters:
       - name: collectionId
@@ -181,7 +183,7 @@ def obter_album():
         required: true
     responses:
       200:
-        description: Álbum encontrado
+        description: Album encontrado
         schema:
           type: array
           items:
@@ -195,11 +197,12 @@ def obter_album():
                 type: integer
               nota:
                 type: integer
-               critica:
+              critica:
                 type: string
               collectionId:
                 type: string
     """
+
     collectionId = request.args.get("collectionId")
 
     if not collectionId:
@@ -225,10 +228,10 @@ def obter_album():
 @main.route('/album/<string:collectionId>', methods=['PUT'])
 def atualizar_album(collectionId):
     """
-    Atualizar álbum pelo collectionId 
+    Atualizar album pelo collectionId
     ---
     tags:
-      - Álbums
+      - Albuns
     operationId: atualizar_album
     parameters:
       - name: collectionId
@@ -247,12 +250,13 @@ def atualizar_album(collectionId):
               type: string
     responses:
       200:
-        description: Álbum atualizado com sucesso
+        description: Album atualizado com sucesso
       400:
         description: Dados inválidos
       404:
-        description: Álbum não encontrado
+        description: Album não encontrado
     """
+
     album = db.session.query(Album).filter(Album.collectionId == collectionId).first()
 
     if not album:
