@@ -22,24 +22,24 @@ cd api-albuns
 
 1. **Construa os contêineres:**
 
-   ```bash docker build -t flask-app .
+   ```docker build -t flask-app .
 
    ```
 
 2. **Inicie o projeto**
 
-   ```bash docker run -p 5001:5001 -v $(pwd)/db:/app/db flask-app
+   ```docker run -p 5001:5001 -v $(pwd)/db:/app/db flask-app
 
    ```
 
 ## Acessar Documentação
 
-Abra [http://127.0.0.1:5000/docs](http://127.0.0.1:5000/docs) no navegador
+Abra [http://127.0.0.1:5001/docs](http://127.0.0.1:5001/docs) no navegador
 
 ## URl para requisições
 
-http://127.0.0.1:5000/album
-http://127.0.0.1:5000/albuns
+http://127.0.0.1:5001/album
+http://127.0.0.1:5001/albuns
 
 - **Listar todos os ábluns avaliados:**
 
