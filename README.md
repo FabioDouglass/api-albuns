@@ -88,7 +88,7 @@ http://127.0.0.1:5001/albuns
   }
   ```
 
-## Apis Externas:
+## Apis Externas
 
 - **Buscar álbuns por título ou cantor**
 
@@ -104,7 +104,7 @@ http://127.0.0.1:5001/albuns
 
   ```
 
-## Fluxograma da Arquitetura da serviço:
+## Fluxograma da Arquitetura da serviço
 
 ---
 
